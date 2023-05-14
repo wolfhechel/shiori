@@ -348,13 +348,14 @@ export default {
 			this.page = 1;
 			this.loadData();
 		},
-		showDialogAdd() {
+		showDialogAdd(url = undefined) {
 			this.showDialog({
 				title: "New Bookmark",
 				content: "Create a new bookmark",
 				fields: [{
 					name: "url",
 					label: "Url, start with http://...",
+					value: url
 				}, {
 					name: "title",
 					label: "Custom title (optional)"
@@ -832,6 +833,12 @@ export default {
 		this.search = url.query.search || "";
 		this.page = url.query.page || 1;
 
+		if (url.query.add) {
+			this.showDialogAdd(url.query.add);
+		}
+
 		this.loadData(false, true);
+
+		console.log('second');
 	}
 }

@@ -13,6 +13,7 @@
 	<link rel="icon" type="image/png" href="res/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="res/favicon-16x16.png" sizes="16x16">
 	<link rel="icon" type="image/x-icon" href="res/favicon.ico">
+	<link rel="manifest" href="res/manifest.json" />
 
 	<link href="css/source-sans-pro.min.css" rel="stylesheet">
 	<link href="css/fontawesome.min.css" rel="stylesheet">
@@ -22,6 +23,13 @@
 
 	<script src="js/vue.min.js"></script>
 	<script src="js/url.min.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register(
+				'js/serviceworker.js', { scope: './' }
+			)
+		}
+	</script>
 </head>
 
 <body class="night">
