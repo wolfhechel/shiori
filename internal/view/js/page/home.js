@@ -348,7 +348,7 @@ export default {
 			this.page = 1;
 			this.loadData();
 		},
-		showDialogAdd(url = undefined) {
+		showDialogAdd(url = undefined, title = undefined, excerpt = undefined) {
 			this.showDialog({
 				title: "New Bookmark",
 				content: "Create a new bookmark",
@@ -358,11 +358,13 @@ export default {
 					value: url
 				}, {
 					name: "title",
-					label: "Custom title (optional)"
+					label: "Custom title (optional)",
+					value: title
 				}, {
 					name: "excerpt",
 					label: "Custom excerpt (optional)",
-					type: "area"
+					type: "area",
+					value: excerpt
 				}, {
 					name: "tags",
 					label: "Comma separated tags (optional)",
@@ -834,11 +836,9 @@ export default {
 		this.page = url.query.page || 1;
 
 		if (url.query.add) {
-			this.showDialogAdd(url.query.add);
+			this.showDialogAdd(url.query.add, url.query.title, url.query.text);
 		}
 
 		this.loadData(false, true);
-
-		console.log('second');
 	}
 }

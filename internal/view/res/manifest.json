@@ -8,7 +8,9 @@
     "action": "/",
     "method": "GET",
     "params": {
-      "url": "add"
+      "url": "add",
+      "title": "title",
+      "text":"text"
     }
   },
   "theme_color": "#f44336",
